@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Bandara;
+use App\Http\Requests\BandaraRequest;
 
 class BandaraController extends Controller
 {
@@ -38,7 +39,7 @@ class BandaraController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BandaraRequest $request)
     {
         $model = new Bandara;
         $model->kode_bandara = $request->get('kode_bandara');
@@ -81,7 +82,7 @@ class BandaraController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(BandaraRequest $request, $id)
     {
         $model = Bandara::find($id);
         $model->kode_bandara = $request->get('kode_bandara');
