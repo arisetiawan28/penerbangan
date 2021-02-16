@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BandaraController;
+use App\Http\Controllers\PenerbanganController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +21,4 @@ Route::get('/', function () {
 });
 
 Route::resource('bandara', BandaraController::class);
+Route::resource('penerbangan', PenerbanganController::class);
