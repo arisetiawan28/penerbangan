@@ -177,12 +177,19 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="../widgets.html" class="nav-link">
+            <a href="{{ url('bandara') }}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Widgets
-                <span class="right badge badge-danger">New</span>
+                Bandara
+                <!-- <span class="right badge badge-danger">New</span> -->
               </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{ url('penerbangan') }}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>Penerbangan</p>
             </a>
           </li>
         </ul>
