@@ -10,6 +10,17 @@ Daftar Bandara
     </div>
     <br/>
 
+    <form action="{{url('bandara')}}" method="get">
+        <div class="input-group mb-3">
+            @csrf
+            <input type="text" class="form-control" name="search" id="search" value="{{ $keyword }}" placeholder="Search..">
+
+            <div class="input-group-append">
+                <button class="btn btn-info" type="submit"><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+        </form>
+
     <div class="col-sm-12">
         <table class="table table-bordered">
             <tr>
@@ -34,5 +45,12 @@ Daftar Bandara
                 </tr>
             @endforeach()
         </table>
+
+        <br/>
+        <!-- 
+            fungsi yang disediakan laravel, untuk menampilkan halaman
+            fungsi ini dapat digunakan jika menggunakan 'paginate' pada pemanggilan data
+            -->
+        {{ $datas->links() }}
     </div>
 @endsection

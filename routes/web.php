@@ -22,3 +22,8 @@ Route::get('/', function () {
 
 Route::resource('bandara', BandaraController::class);
 Route::resource('penerbangan', PenerbanganController::class);
+Route::get('/penerbangan/{id}/tambah_penumpang', [PenerbanganController::class, 'tambah_penumpang']);
+Route::post('/penerbangan/{id}/store_penumpang', [PenerbanganController::class, 'store_penumpang']);
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');

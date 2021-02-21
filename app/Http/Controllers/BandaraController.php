@@ -13,12 +13,22 @@ class BandaraController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $model = new Bandara;
-        $datas = Bandara::all();
+        // $datas = Bandara::all();
+
+        $keyword = $request->get('search');
+
+        $datas = Bandara::where('kode_bandara', 'LIKE', '%' . $keyword . '%')
+            ->orWhere('nama_bandara', 'LIKE', '%' . $keyword . '%')
+            ->orWhere('alamat_bandara', 'LIKE', '%' . $keyword . '%')
+            ->paginate();
+
+        $datas->withPath('bandara');
+        $datas->appends($request->all());
         return view('bandara.index', compact(
-            'datas', 'model'
+            'datas', 'model', 'keyword'
         ));
     }
 
